@@ -7,21 +7,25 @@
  */
 
 namespace SudoCoin;
-use function Stringy\create as s;
+use SudoCoin\Transaction\Genesis;
+use SudoCoin\Transaction\Input;
+use SudoCoin\Transaction\Output;
+use SudoCoin\Transaction\Transaction;
 
 class SudoCoin
 {
     public static function init() {
-        $message = 'hello sudocoin';
 
-        for($i = 0; $i < 1000; $i++) {
-            $digest = Utils::sha256($message . $i);
+        $alice = new Wallet();
+        $bob = new Wallet();
 
-            if(s($digest)->startsWith('11')) {
-                print("Found nonce at $i" . "\n");
-                print $digest . "\n";
-                break;
-            }
-        }
+        $ledger[] = new Genesis($alice);
+
+        $ledger[] = new Transaction($alice,
+            [new Input($ledger[0], 0)],
+            [new Output($bob, 25)]
+        );
+
+        \assert(Utils::verify_transaction($ledger[1]));
     }
 }
