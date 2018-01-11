@@ -17,27 +17,36 @@ class Miner
      * Difficulty
      * @var int
      */
-    public $difficulty = 1;
+    public $difficulty;
 
     /**
      * Message
      * @var string
      */
-    public $message = '';
+    public $message;
 
     public $solvedHash;
 
     public $solvedI;
+
+    public $offset = 0;
+
+    public function __construct(string $message = '', int $difficulty = 1)
+    {
+        $this->message = $message;
+        $this->difficulty = $difficulty;
+        $this->mine();
+    }
 
     public function mine()
     {
         \assert($this->difficulty >= 1);
 
         $prefix = s('1')->repeat($this->difficulty);
-        for ($i = 0; true; $i++) {
+        for ($i = $this->offset; true; $i++) {
             $digest = s(Utils::sha256($this->message . $i));
             if ($digest->startsWith($prefix)) {
-                // Solved
+                // If miner is solved
                 $this->solvedHash = $digest;
                 $this->solvedI = $i;
 

@@ -1,19 +1,23 @@
 {
-    "name": "alex/sudo-coin",
-    "description": "The Sudo Cryptocurrency",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Alex",
-            "email": "chess2ryme@gmail.com"
-        }
-    ],
-    "require": {
-        "danielstjules/stringy": "^3.1",
-        "phpseclib/phpseclib": "^2.0",
-        "league/climate": "^3.2"
-    },
-    "autoload": {
-        "psr-4": {"SudoCoin\\": "src/"}
+  "name": "sudouc/sudo-coin",
+  "description": "The Sudo Cryptocurrency – So sought-after, completely worthless.",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Alex",
+      "email": "alex@sudo.org.au"
     }
+  ],
+  "require": {
+    "roave/security-advisories": "dev-master",
+    "danielstjules/stringy": "^3.1",
+    "phpseclib/phpseclib": "^2.0",
+    "league/climate": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {"SudoCoin\\": "src/"}
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  }
 }

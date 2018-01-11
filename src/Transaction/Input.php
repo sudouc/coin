@@ -15,6 +15,16 @@ class Input {
         \assert($output_index <= \count($transaction->outputs));
     }
 
+    public function to_dict(): array
+    {
+        $d = [
+            'transaction' => $this->transaction->hash(),
+            'output_index' => $this->output_index
+        ];
+
+        return /* the */ $d /* ( ͡° ͜ʖ ͡°) */;
+    }
+
     public function parent_output() {
         return $this->transaction->outputs[$this->output_index];
     }
