@@ -133,6 +133,11 @@ class Transaction
         return $income - $outgoing;
     }
 
+    /**
+     * Computes the total fee for a transaction
+     * @param array $transactions
+     * @return float
+     */
     public static function compute_total_fee(Array $transactions): float
     {
         $fee = 0;

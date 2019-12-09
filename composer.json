@@ -12,7 +12,9 @@
     "roave/security-advisories": "dev-master",
     "danielstjules/stringy": "^3.1",
     "phpseclib/phpseclib": "^2.0",
-    "league/climate": "^3.2"
+    "league/climate": "^3.2",
+    "ext-json": "*",
+    "php": "^7.1"
   },
   "autoload": {
     "psr-4": {"SudoCoin\\": "src/"}
