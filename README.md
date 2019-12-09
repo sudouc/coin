@@ -2,6 +2,10 @@
 
 The Sudo Blockchain Currency.
 
-## Documentation 
+## Getting Started 
 
-Visit the online documentation here at https://docs.sudo.org.au/#/coin
+To run the SudoCoin using Docker, run the following commands:
+
+```bash
+sudo docker run -it $(sudo docker build -q .)
+```

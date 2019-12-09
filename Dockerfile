@@ -1,0 +1,17 @@
+FROM php:7.3-cli-alpine3.10
+
+RUN apk add ncurses
+
+WORKDIR /usr/src/myapp
+
+ADD composer.json /usr/src/myapp/composer.json
+
+ADD composer.lock /usr/src/myapp
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN /usr/bin/composer install
+
+COPY . /usr/src/myapp
+
+CMD [ "php", "./main.php" ]
